@@ -1,0 +1,29 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "Views/Html/Dev/"
+        ]
+    },
+    "logs": {
+        "text": "logs/infection/infection.log",
+        "summary": "logs/infection/summary.log",
+        "perMutator": "logs/infection/per-mutator.md",
+        "debug": "logs/infection/debug.log",
+
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "mutators": {
+        "@default": true
+    },
+
+    "tmpDir": "build/infection/temp",
+    "phpUnit": {
+        "configDir": "."
+    }
+}

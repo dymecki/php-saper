@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+
+         executionOrder="random"
+         resolveDependencies="true"
+
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Tests">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <!--        <whitelist processUcoveredFilesFromWhitelist="true">-->
+        <!--            <directory suffix=".php">./src</directory>-->
+        <!--        </whitelist>-->
+
+        <whitelist addUncoveredFilesFromWhitelist="true" >
+            <directory>./src</directory>
+        </whitelist>
+    </filter>
+
+    <php>
+        <server name="APP_ENV" value="testing"/>
+        <!--        <server name="APP_URL" value="http://api.baseci.test"/>-->
+        <server name="BCRYPT_ROUNDS" value="4"/>
+        <server name="CACHE_DRIVER" value="array"/>
+        <server name="MAIL_DRIVER" value="array"/>
+        <server name="QUEUE_CONNECTION" value="sync"/>
+        <server name="SESSION_DRIVER" value="array"/>
+
+        <server name="DB_CONNECTION" value="sqlite"/>
+        <server name="DB_DATABASE" value=":memory:"/>
+
+        <env name="TELESCOPE_ENABLED" value="false"/>
+    </php>
+
+<!--    <logging>-->
+        <!--        <log type="coverage-html" target="logs/phpunit" charset="UTF-8" yui="true" />-->
+<!--        <log type="coverage-clover" target="logs/phpunit/"/>-->
+<!--        <log type="junit" target="logs/phpunit/junit.xml"/>-->
+<!--    </logging>-->
+</phpunit>

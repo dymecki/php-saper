@@ -1,0 +1,33 @@
+{
+    "name": "dymecki/saper",
+    "description": "Game",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michał",
+            "email": "michal@dymecki.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "require": {
+        "php": "7.4",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "infection/infection": "^0.15.0",
+        "phpunit/phpunit": "8.4.3"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "mutation": "vendor/bin/infection --threads=$(nproc)"
+    }
+}
